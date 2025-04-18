@@ -8,14 +8,19 @@ const nextConfig = {
       },
     ],
   },
+  // Disable ESLint and TypeScript error checking during build
+  // This is not recommended for production, but can help debug build issues
   eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,
   },
+  // Increase build time to allow for more processing
+  experimental: {
+    workerThreads: true,
+    cpus: 4
+  }
 };
 
 module.exports = nextConfig; 

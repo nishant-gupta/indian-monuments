@@ -79,7 +79,7 @@ export default function ProfileContent() {
           <div className="space-y-4">
             <div>
               <label className="text-sm font-medium">Name</label>
-              <p className="mt-1">{session.user?.name ?? "Not provided"}</p>
+              <p className="mt-1">{session.user?.name ?? &quot;Not provided&quot;}</p>
             </div>
             <div>
               <label className="text-sm font-medium">Email</label>
@@ -124,25 +124,11 @@ export default function ProfileContent() {
                     <Image
                       src={monument.images[0].url}
                       alt={monument.images[0].alt}
-                      width={200}
-                      height={150}
-                      className="h-40 w-full rounded-t-lg object-cover"
+                      width={64}
+                      height={64}
+                      className="h-16 w-16 object-cover rounded"
                     />
                   )}
                   <div>
                     <Link
-                      href={`/monuments/${monument.slug}`}
-                      className="text-lg font-medium hover:underline"
-                    >
-                      {monument.name}
-                    </Link>
-                  </div>
-                </div>
-              ))
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
+                      href={`/monuments/${monument.slug}`
