@@ -79,7 +79,7 @@ export default function ProfileContent() {
           <div className="space-y-4">
             <div>
               <label className="text-sm font-medium">Name</label>
-              <p className="mt-1">{session.user?.name ?? &quot;Not provided&quot;}</p>
+              <p className="mt-1">{session.user?.name || "Not provided"}</p>
             </div>
             <div>
               <label className="text-sm font-medium">Email</label>
@@ -106,13 +106,13 @@ export default function ProfileContent() {
           <div className="space-y-2">
             <h2 className="text-xl font-semibold">Your Favorites</h2>
             <p className="text-muted-foreground">
-              Monuments you've added to your favorites list.
+              Monuments you have added to your favorites list.
             </p>
           </div>
           <div className="grid gap-4">
             {favorites.length === 0 ? (
               <p className="text-sm text-muted-foreground">
-                You haven&apos;t added any monuments to your favorites yet.
+                You have not added any monuments to your favorites yet.
               </p>
             ) : (
               favorites.map((monument) => (
@@ -131,4 +131,18 @@ export default function ProfileContent() {
                   )}
                   <div>
                     <Link
-                      href={`/monuments/${monument.slug}`
+                      href={`/monuments/${monument.slug}`}
+                      className="text-lg font-medium hover:underline"
+                    >
+                      {monument.name}
+                    </Link>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}

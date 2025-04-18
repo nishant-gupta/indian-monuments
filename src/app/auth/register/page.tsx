@@ -20,7 +20,7 @@ export default function RegisterPage() {
         <div className="relative z-20 mt-auto">
           <blockquote className="space-y-2">
             <p className="text-lg">
-              &ldquo;Join our community of history enthusiasts and travelers. Create an account to start exploring the world&apos;s most fascinating monuments.&rdquo;
+              Join our community of history enthusiasts and travelers. Create an account to start exploring the world's most fascinating monuments.
             </p>
           </blockquote>
         </div>
