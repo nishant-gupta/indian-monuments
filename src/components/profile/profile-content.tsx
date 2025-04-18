@@ -5,6 +5,7 @@ import { redirect } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface Monument {
   id: string
@@ -78,7 +79,7 @@ export default function ProfileContent() {
           <div className="space-y-4">
             <div>
               <label className="text-sm font-medium">Name</label>
-              <p className="mt-1">{session.user?.name || 'Not provided'}</p>
+              <p className="mt-1">{session.user?.name ?? "Not provided"}</p>
             </div>
             <div>
               <label className="text-sm font-medium">Email</label>
@@ -88,10 +89,12 @@ export default function ProfileContent() {
               <div>
                 <label className="text-sm font-medium">Profile Picture</label>
                 <div className="mt-2">
-                  <img
+                  <Image
                     src={session.user.image}
                     alt={session.user.name || 'Profile picture'}
-                    className="h-20 w-20 rounded-full"
+                    width={100}
+                    height={100}
+                    className="h-24 w-24 rounded-full object-cover"
                   />
                 </div>
               </div>
@@ -108,8 +111,8 @@ export default function ProfileContent() {
           </div>
           <div className="grid gap-4">
             {favorites.length === 0 ? (
-              <p className="text-muted-foreground">
-                You haven't added any monuments to your favorites yet.
+              <p className="text-sm text-muted-foreground">
+                You haven&apos;t added any monuments to your favorites yet.
               </p>
             ) : (
               favorites.map((monument) => (
@@ -118,10 +121,12 @@ export default function ProfileContent() {
                   className="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg"
                 >
                   {monument.images?.[0] && (
-                    <img
+                    <Image
                       src={monument.images[0].url}
                       alt={monument.images[0].alt}
-                      className="h-16 w-16 object-cover rounded"
+                      width={200}
+                      height={150}
+                      className="h-40 w-full rounded-t-lg object-cover"
                     />
                   )}
                   <div>

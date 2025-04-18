@@ -20,7 +20,7 @@ export default function RegisterPage() {
         <div className="relative z-20 mt-auto">
           <blockquote className="space-y-2">
             <p className="text-lg">
-              "Join our community of history enthusiasts and travelers. Create an account to start exploring the world's most fascinating monuments."
+              &ldquo;Join our community of history enthusiasts and travelers. Create an account to start exploring the world&apos;s most fascinating monuments.&rdquo;
             </p>
           </blockquote>
         </div>
@@ -37,13 +37,7 @@ export default function RegisterPage() {
           </div>
           <RegisterForm />
           <p className="px-8 text-center text-sm text-muted-foreground">
-            Already have an account?{' '}
-            <Link
-              href="/auth/signin"
-              className="underline underline-offset-4 hover:text-primary"
-            >
-              Sign in
-            </Link>
+            Already have an account? <Link href="/auth/login" className="text-primary hover:underline">Sign in</Link>
           </p>
         </div>
       </div>

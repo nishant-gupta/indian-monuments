@@ -39,12 +39,10 @@ const typeOptions = [
 
 interface FilterControlsProps {
   activeRegion?: string
-  activeCategory?: string
 }
 
 export function FilterControls({
   activeRegion = 'all',
-  activeCategory = 'all',
 }: FilterControlsProps) {
   const router = useRouter()
   const searchParams = useSearchParams()

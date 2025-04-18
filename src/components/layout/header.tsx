@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { Building2, Heart, Search, User, Menu, X } from 'lucide-react'
+import { Building2, Heart, Search, Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { useSession, signOut } from 'next-auth/react'
@@ -14,6 +14,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { useState } from 'react'
+import Image from 'next/image'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -80,15 +81,13 @@ export function Header() {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="flex h-9 w-9 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
-                  {session.user?.image ? (
-                    <img
-                      src={session.user.image}
-                      alt={session.user.name || 'User'}
-                      className="h-8 w-8 rounded-full"
-                    />
-                  ) : (
-                    <User className="h-5 w-5 text-gray-600 dark:text-gray-400" />
-                  )}
+                  <Image
+                    src={session.user.image || '/placeholder-user.png'}
+                    alt={session.user.name || 'User avatar'}
+                    width={32}
+                    height={32}
+                    className="h-8 w-8 rounded-full"
+                  />
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
